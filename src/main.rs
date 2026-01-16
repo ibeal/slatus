@@ -9,7 +9,7 @@ use clap_complete_nushell::Nushell;
 use std::io;
 
 #[derive(Parser)]
-#[command(name = "slack-status")]
+#[command(name = "slatus")]
 #[command(about = "Manage and quickly set Slack statuses", long_about = None)]
 struct Cli {
     #[command(subcommand)]
@@ -97,7 +97,7 @@ fn cmd_list() -> Result<()> {
     let statuses = storage::load_statuses()?;
 
     if statuses.is_empty() {
-        println!("No saved statuses. Add one with: slack-status add <name> <text> <emoji>");
+        println!("No saved statuses. Add one with: slatus add <name> <text> <emoji>");
         return Ok(());
     }
 
@@ -199,11 +199,11 @@ fn cmd_config(token: &str) -> Result<()> {
 fn cmd_completions(shell: ShellArg) {
     let mut cmd = Cli::command();
     match shell {
-        ShellArg::Bash => generate(Shell::Bash, &mut cmd, "slack-status", &mut io::stdout()),
-        ShellArg::Elvish => generate(Shell::Elvish, &mut cmd, "slack-status", &mut io::stdout()),
-        ShellArg::Fish => generate(Shell::Fish, &mut cmd, "slack-status", &mut io::stdout()),
-        ShellArg::Nushell => generate(Nushell, &mut cmd, "slack-status", &mut io::stdout()),
-        ShellArg::Powershell => generate(Shell::PowerShell, &mut cmd, "slack-status", &mut io::stdout()),
-        ShellArg::Zsh => generate(Shell::Zsh, &mut cmd, "slack-status", &mut io::stdout()),
+        ShellArg::Bash => generate(Shell::Bash, &mut cmd, "slatus", &mut io::stdout()),
+        ShellArg::Elvish => generate(Shell::Elvish, &mut cmd, "slatus", &mut io::stdout()),
+        ShellArg::Fish => generate(Shell::Fish, &mut cmd, "slatus", &mut io::stdout()),
+        ShellArg::Nushell => generate(Nushell, &mut cmd, "slatus", &mut io::stdout()),
+        ShellArg::Powershell => generate(Shell::PowerShell, &mut cmd, "slatus", &mut io::stdout()),
+        ShellArg::Zsh => generate(Shell::Zsh, &mut cmd, "slatus", &mut io::stdout()),
     }
 }

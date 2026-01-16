@@ -4,7 +4,7 @@ use std::fs;
 use std::path::PathBuf;
 
 pub fn config_dir() -> Result<PathBuf> {
-    let proj_dirs = ProjectDirs::from("com", "slack-status", "slack-status")
+    let proj_dirs = ProjectDirs::from("com", "slatus", "slatus")
         .context("Could not determine config directory")?;
 
     let config_dir = proj_dirs.config_dir().to_path_buf();
@@ -36,5 +36,5 @@ pub fn load_token() -> Result<String> {
 
     fs::read_to_string(&path)
         .map(|s| s.trim().to_string())
-        .context("No token configured. Run: slack-status config <token>")
+        .context("No token configured. Run: slatus config <token>")
 }

@@ -1,4 +1,4 @@
-# slack-status
+# slatus
 
 A CLI tool for managing and quickly setting Slack statuses. Save your frequently used statuses and apply them with a single command.
 
@@ -15,7 +15,7 @@ A CLI tool for managing and quickly setting Slack statuses. Save your frequently
 cargo build --release
 
 # Install to your PATH
-cp target/release/slack-status ~/.local/bin/
+cp target/release/slatus ~/.local/bin/
 # or
 cargo install --path .
 ```
@@ -26,22 +26,22 @@ Generate completions for your shell:
 
 ```bash
 # Bash
-slack-status completions bash > ~/.local/share/bash-completion/completions/slack-status
+slatus completions bash > ~/.local/share/bash-completion/completions/slatus
 
 # Zsh
-slack-status completions zsh > ~/.zfunc/_slack-status
+slatus completions zsh > ~/.zfunc/_slatus
 
 # Fish
-slack-status completions fish > ~/.config/fish/completions/slack-status.fish
+slatus completions fish > ~/.config/fish/completions/slatus.fish
 
 # Nushell
-slack-status completions nushell | save ~/.config/nushell/completions/slack-status.nu
+slatus completions nushell | save ~/.config/nushell/completions/slatus.nu
 # Then add to config.nu:
-#   source ~/.config/nushell/completions/slack-status.nu
+#   source ~/.config/nushell/completions/slatus.nu
 #   use completions *
 
 # PowerShell
-slack-status completions powershell > _slack-status.ps1
+slatus completions powershell > _slatus.ps1
 ```
 
 ## Setup
@@ -57,13 +57,13 @@ slack-status completions powershell > _slack-status.ps1
 ### Configure the Token
 
 ```bash
-slack-status config xoxp-your-token-here
+slatus config xoxp-your-token-here
 ```
 
 ## Usage
 
 ```
-slack-status <COMMAND>
+slatus <COMMAND>
 
 Commands:
   list         List all saved statuses
@@ -81,28 +81,28 @@ Commands:
 
 ```bash
 # Add some statuses
-slack-status add meeting "In a meeting" ":calendar:"
-slack-status add lunch "Out for lunch" ":hamburger:"
-slack-status add focus "Focus time - minimal interruptions" ":headphones:"
-slack-status add vacation "On vacation" ":palm_tree:"
+slatus add meeting "In a meeting" ":calendar:"
+slatus add lunch "Out for lunch" ":hamburger:"
+slatus add focus "Focus time - minimal interruptions" ":headphones:"
+slatus add vacation "On vacation" ":palm_tree:"
 
 # List saved statuses
-slack-status list
+slatus list
 
 # Set a status
-slack-status set meeting
+slatus set meeting
 
 # Set a status with expiration (in minutes)
-slack-status set lunch --expires 60
+slatus set lunch --expires 60
 
 # Check current status
-slack-status current
+slatus current
 
 # Clear status
-slack-status clear
+slatus clear
 
 # Remove a saved status
-slack-status remove vacation
+slatus remove vacation
 ```
 
 ## Data Storage
@@ -111,8 +111,8 @@ Configuration and data are stored together in a platform-specific location:
 
 | Platform | Location |
 |----------|----------|
-| macOS | `~/Library/Application Support/com.slack-status.slack-status/` |
-| Linux | `~/.config/slack-status/` |
+| macOS | `~/Library/Application Support/com.slatus.slatus/` |
+| Linux | `~/.config/slatus/` |
 
 Files:
 - `token` - Your Slack API token (permissions: 600)
